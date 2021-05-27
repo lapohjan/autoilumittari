@@ -14,10 +14,31 @@ function App() {
     if (!formValid) {
       return;
     }
+    
     const time = distance / speed;
-    const n = new Date(0, 0);
-    n.setMinutes(+time * 60);
-    const travelTime = n.toTimeString().slice(0, 5);
+    // const n = new Date(0, 0);
+    // n.setMinutes(+time * 60);
+    // const travelTime = n.toTimeString().slice(0, 5);
+    const hours = Math.floor(time);
+    const minutes = (time - hours) * 60;
+    const rminutes = Math.round(minutes);
+    let result;
+
+    if (hours === 0 && rminutes > 0) {
+      result = rminutes + " minutes";
+    } else if (hours === 1 && rminutes === 0) {
+      result = hours + " hour";
+    } else if (hours > 1 && rminutes === 0) {
+      result = hours + " hours";
+    } else if (hours > 1 && rminutes > 1) {
+      result = hours + " hours and " + rminutes + " minutes";
+    } else {
+      result = hours + " hours and " + rminutes + " minutes";
+    }
+
+    console.log(result);
+    const travelTime = result;
+    
     setTravelTime(travelTime);
   };
 
