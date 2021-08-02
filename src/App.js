@@ -47,7 +47,10 @@ function App() {
       <form onSubmit={calculateTravelTime}>
         <div>
           <label>Speed in km / h</label>
-          <input value={speed} onChange={(e) => setSpeed(e.target.value)} />
+          <select id="carSpeed" value={speed} onChange={(e) => setSpeed(e.target.value)}>
+            <option value="80">80</option>
+            <option value="100">100</option>
+          </select>
         </div>
 
         <div>
