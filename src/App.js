@@ -3,12 +3,12 @@ import './App.css';
 
 function App() {
   const [speed, setSpeed] = useState(0);
-  // const [car, setCar] = useState(0);
+  const [car, setCar] = useState(0);
   const [distance, setDistance] = useState(0);
-  // const [fuelConsumption, setFuelConsumption] = useState(0);
+  const [fuelConsumption, setFuelConsumption] = useState(0);
   const [travelTime, setTravelTime] = useState(0);
 
-  const calculateTravelTime = (e) => {
+  const calculate = (e) => {
     e.preventDefault();
     const formValid = speed > 0 && distance > 0;
     if (!formValid) {
@@ -40,14 +40,51 @@ function App() {
     const travelTime = result;
     
     setTravelTime(travelTime);
+
+    const consumption = distance * (3/100).toFixed(2);
+    const consumption2 = distance * (3.5/100).toFixed(2);
+    const consumption3 = distance * (4/100).toFixed(2);
+    let outcome;
+
+    if (car === "A") {
+      outcome = consumption + " litres";
+    } else if (car === "B") {
+      outcome = consumption2 + " litres";
+    } else if (car === "C") {
+      outcome = consumption3 + " litres";
+    } else {
+      outcome = "Could not calculate, try again";
+    }
+
+    console.log(outcome);
+    const fuelConsumption = outcome;
+    
+    setFuelConsumption(fuelConsumption);
+  
+
   };
+
+ 
+    
 
   return (
     <div className="App">
-      <form onSubmit={calculateTravelTime}>
+      <form onSubmit={calculate}>
+
+        <div>
+          <label>Select car</label>
+          <select id="carType" value={car} onChange={(e) => setCar(e.target.value)}>
+            <option value="">Select car</option>
+            <option value="A">Car A</option>
+            <option value="B">Car B</option>
+            <option value="C">Car C</option>
+          </select>
+        </div>
+
         <div>
           <label>Speed in km / h</label>
           <select id="carSpeed" value={speed} onChange={(e) => setSpeed(e.target.value)}>
+            <option value="">Select speed</option>
             <option value="80">80</option>
             <option value="100">100</option>
           </select>
@@ -64,6 +101,7 @@ function App() {
         <button type="submit">calculate</button>
       </form>
       <p>Travel time: {travelTime}</p>
+      <p>Fuel consumption: {fuelConsumption}</p>
     </div>
   );
 }
