@@ -41,9 +41,9 @@ function App() {
     
     setTravelTime(travelTime);
 
-    const consumption = distance * (3/100).toFixed(2);
-    const consumption2 = distance * (3.5/100).toFixed(2);
-    const consumption3 = distance * (4/100).toFixed(2);
+    const consumption = distance * (3/100);
+    const consumption2 = distance * (3.5/100);
+    const consumption3 = distance * (4/100);
     let outcome;
 
     if (car === "A") {
