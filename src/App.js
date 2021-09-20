@@ -43,7 +43,7 @@ function App() {
 
     //If the speed of the car increases by 1km / h,
     //the fuel consumption will increase 1.009 times.
-    let fuel = 3.5;
+    let fuel = 3;
     for (let i = 0; i < speed; i++) {
       fuel = 1.0009 * fuel;
     }
@@ -55,7 +55,7 @@ function App() {
     }
     console.log(fuel2);
 
-    let fuel3 = 3.5;
+    let fuel3 = 4;
     for (let i = 0; i < speed; i++) {
       fuel3 = 1.0009 * fuel3;
     }
@@ -63,9 +63,7 @@ function App() {
 
     const consumption = distance * (fuel/100);
 
-
     const consumption2 = distance * (fuel2/100);
-
 
     const consumption3 = distance * (fuel3/100);
 
