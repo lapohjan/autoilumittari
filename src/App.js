@@ -41,9 +41,35 @@ function App() {
     
     setTravelTime(travelTime);
 
-    const consumption = distance * (3/100);
-    const consumption2 = distance * (3.5/100);
-    const consumption3 = distance * (4/100);
+    //If the speed of the car increases by 1km / h,
+    //the fuel consumption will increase 1.009 times.
+    let fuel = 3.5;
+    for (let i = 0; i < speed; i++) {
+      fuel = 1.0009 * fuel;
+    }
+    console.log(fuel);
+
+    let fuel2 = 3.5;
+    for (let i = 0; i < speed; i++) {
+      fuel2 = 1.0009 * fuel2;
+    }
+    console.log(fuel2);
+
+    let fuel3 = 3.5;
+    for (let i = 0; i < speed; i++) {
+      fuel3 = 1.0009 * fuel3;
+    }
+    console.log(fuel3);
+
+    const consumption = distance * (fuel/100);
+
+
+    const consumption2 = distance * (fuel2/100);
+
+
+    const consumption3 = distance * (fuel3/100);
+
+
     let outcome;
 
     if (car === "A") {
