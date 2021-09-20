@@ -47,23 +47,24 @@ function App() {
     let outcome;
 
     if (car === "A") {
-      outcome = consumption + " litres";
+      outcome = consumption.toFixed(2) + " litres";
     } else if (car === "B") {
-      outcome = consumption2 + " litres";
+      outcome = consumption2.toFixed(2) + " litres";
     } else if (car === "C") {
-      outcome = consumption3 + " litres";
+      outcome = consumption3.toFixed(2) + " litres";
     } else {
       outcome = "Could not calculate, try again";
     }
 
     console.log(outcome);
     const fuelConsumption = outcome;
-    
+
     setFuelConsumption(fuelConsumption);
-  
+
 
   };
 
+  
  
     
 
